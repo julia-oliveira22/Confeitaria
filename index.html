@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confeitaria Gourmet</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <section id="home">
+        <button id="btn-comecar" onclick="navegar('pedidos')">Começar</button>
+    </section>
+
+    <section id="pedidos" class="tela-oculta">
+        <header class="menu-superior">
+            <div class="header-left">
+                <button class="btn-voltar-topo" onclick="navegar('home')"><i class="fas fa-chevron-left"></i></button>
+                <div class="balao-texto">Seja bem-vindo, que comecem os pedidos!!</div>
+            </div>
+            <div class="icones-nav">
+                <i class="fas fa-home" onclick="navegar('home')"></i>
+                <i class="fas fa-shopping-bag"></i>
+                <i class="fas fa-shopping-cart"></i>
+                <i class="fas fa-user-circle" onclick="navegar('acompanhar')"></i>
+            </div>
+        </header>
+
+        <main class="conteudo-pedidos">
+            <aside class="sidebar">
+                <div class="busca-container">
+                    <input type="text" placeholder="Pesquise aqui">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="filtros">
+                    <label><input type="radio" name="categoria" checked onclick="filtrar('todos')"> ambos</label>
+                    <label><input type="radio" name="categoria" onclick="filtrar('doce')"> doces</label>
+                    <label><input type="radio" name="categoria" onclick="filtrar('salgado')"> salgados</label>
+                </div>
+            </aside>
+
+            <section class="grid-produtos">
+                <div class="card-produto doce" onclick="selecionarProduto('Brigadeiro Gourmet', 4.50, 'img/doce01.jpg')">
+                    <img src="img/doce01.jpg" alt="Brigadeiro">
+                    <div class="info-prod"><strong>Brigadeiro Gourmet</strong><p>R$ 4,50</p></div>
+                </div>
+                <div class="card-produto doce" onclick="selecionarProduto('Donuts', 8.00, 'img/doce02.jpg')">
+                    <img src="img/doce02.jpg" alt="Donuts">
+                    <div class="info-prod"><strong>Donuts</strong><p>R$ 8,00</p></div>
+                </div>
+                <div class="card-produto doce" onclick="selecionarProduto('Bolo de Chocolate', 12.00, 'img/doce03.jpg')"><img src="img/doce03.jpg" alt=""><div class="info-prod"><strong>Bolo de Chocolate</strong><p>R$ 12,00</p></div></div>
+                <div class="card-produto doce" onclick="selecionarProduto('Pudim de Leite', 10.00, 'img/doce04.jpg')"><img src="img/doce04.jpg" alt=""><div class="info-prod"><strong>Pudim de Leite</strong><p>R$ 10,00</p></div></div>
+                <div class="card-produto doce" onclick="selecionarProduto('Beijinho', 4.00, 'img/doce05.jpg')"><img src="img/doce05.jpg" alt=""><div class="info-prod"><strong>Beijinho</strong><p>R$ 4,00</p></div></div>
+                <div class="card-produto doce" onclick="selecionarProduto('Cupcake Morango', 9.00, 'img/doce06.jpg')"><img src="img/doce06.jpg" alt=""><div class="info-prod"><strong>Cupcake Morango</strong><p>R$ 9,00</p></div></div>
+        
+                <div class="card-produto salgado" onclick="selecionarProduto('Coxinha de Frango', 6.00, 'img/salgado.01.jpg')"><img src="img/salgado.01.jpg" alt=""><div class="info-prod"><strong>Coxinha de Frango</strong><p>R$ 6,00</p></div></div>
+                <div class="card-produto salgado" onclick="selecionarProduto('Empada de Frango', 5.50, 'img/salgado02.jpg')"><img src="img/salgado02.jpg" alt=""><div class="info-prod"><strong>Empada de Frango</strong><p>R$ 5,50</p></div></div>
+                <div class="card-produto salgado" onclick="selecionarProduto('Pão de Queijo', 4.00, 'img/salgado03.jpg')"><img src="img/salgado03.jpg" alt=""><div class="info-prod"><strong>Pão de Queijo</strong><p>R$ 4,00</p></div></div>
+                <div class="card-produto salgado" onclick="selecionarProduto('Kibe Recheado', 6.00, 'img/salgado04.jpg')"><img src="img/salgado04.jpg" alt=""><div class="info-prod"><strong>Kibe Recheado</strong><p>R$ 6,00</p></div></div>
+                <div class="card-produto salgado" onclick="selecionarProduto('Esfiha de Carne', 5.00, 'img/salgado05.jpg')"><img src="img/salgado05.jpg" alt=""><div class="info-prod"><strong>Esfiha de Carne</strong><p>R$ 5,00</p></div></div>
+                <div class="card-produto salgado" onclick="selecionarProduto('Enroladinho', 5.50, 'img/salgado06.jpg')"><img src="img/salgado06.jpg" alt=""><div class="info-prod"><strong>Enroladinho</strong><p>R$ 5,50</p></div></div>
+            </section>
+        </main>
+    </section>
+
+    <section id="login" class="tela-oculta">
+        <div class="formulario-container">
+            <button class="btn-voltar-simples" onclick="navegar('pedidos')"><i class="fas fa-arrow-left"></i> Voltar para a loja</button>
+            <h2>Informações e Pedido</h2>
+            <form id="form-cadastro">
+                <label>Nome completo:</label>
+                <input type="text" id="nome-cliente" required>
+                
+                <label>CPF:</label>
+                <input type="text" id="cpf-cliente" required>
+                
+                <label>E-mail:</label>
+                <input type="email" id="email-cliente" required>
+                
+                <label>CEP:</label>
+                <input type="text" id="cep-cliente" required>
+                
+                <label>Endereço completo:</label>
+                <input type="text" id="endereco-cliente" required>
+                
+                <label>Quantidade desejada:</label>
+                <input type="number" id="qtd-produto" value="1" min="1" required>
+                
+                <label>Forma de Pagamento:</label>
+                <select id="forma-pagamento" style="margin-bottom: 15px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+                    <option value="Pix">Pix</option>
+                    <option value="Cartão de Crédito">Cartão de Crédito</option>
+                    <option value="Dinheiro">Dinheiro</option>
+                </select>
+                
+                <button type="button" class="btn-pedir" onclick="confirmarPedido()">pedir 👆</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="modal-sucesso" class="modal-sucesso-oculto">
+        <div class="conteudo-modal">
+            <i class="fas fa-check-circle"></i>
+            <h2>Pedido realizado!</h2>
+            <p>Seu doce momento está sendo preparado.</p>
+        </div>
+    </div>
+
+    <section id="acompanhar" class="tela-oculta">
+        <header class="menu-superior">
+            <div class="header-left">
+                <button class="btn-voltar-topo" onclick="navegar('pedidos')"><i class="fas fa-chevron-left"></i></button>
+                <div class="balao-texto">Seja bem-vindo, que comecem os pedidos!!</div>
+            </div>
+            <div class="icones-nav">
+                <i class="fas fa-home" onclick="navegar('home')"></i>
+                <i class="fas fa-shopping-bag"></i>
+                <i class="fas fa-shopping-cart" onclick="navegar('pedidos')"></i>
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </header>
+
+        <div class="container-acompanhar">
+            <div class="coluna-esquerda">
+                <div class="card-status">
+                    <img id="img-pedido-atual" src="img/doce05.jpg" alt="Produto Atual">
+                    <div class="status-texto">
+                        <p>pedido em andamento</p>
+                        <h3>preparando pedido...</h3>
+                        <a href="#">Detalhes do produto</a>
+                        <span class="cancelar">Cancelar pedido</span>
+                    </div>
+                </div>
+                <div class="historico">
+                    <h3>Histórico...</h3>
+                    <div id="lista-historico"></div>
+                </div>
+            </div>
+
+            <div class="coluna-direita">
+                <div class="detalhes-pagamento">
+                    <h3>Detalhes do produto</h3>
+                    <img id="img-detalhe-atual" src="img/doce05.jpg" alt="Detalhe" class="img-detalhe">
+                    <p id="nome-detalhe-atual"><strong>Nenhum produto selecionado</strong></p>
+                    <p id="qtd-detalhe-atual">Quantidade: -</p>
+                    <p id="pagamento-detalhe-atual">Forma de pagamento: -</p>
+                    <div id="total-detalhe-atual" class="total-pago">Valor total pago: 0 reais</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+/* GERAL */
+body, html { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; background-color: #f0f0f0; }
+.tela-oculta { display: none !important; }
+
+/* ESTILO DOS BOTÕES DE VOLTAR */
+.header-left { display: flex; align-items: center; gap: 10px; }
+
+.btn-voltar-topo {
+    background: white; border: none; color: #9b59b6; width: 35px; height: 35px;
+    border-radius: 50%; cursor: pointer; display: flex; align-items: center;
+    justify-content: center; font-size: 18px; transition: 0.3s;
+}
+.btn-voltar-topo:hover { background: #e0c3fc; color: white; }
+
+.btn-voltar-simples {
+    background: none; border: none; color: white; cursor: pointer;
+    font-weight: bold; margin-bottom: 15px; display: flex; align-items: center; gap: 5px;
+}
+.btn-voltar-simples:hover { text-decoration: underline; }
+
+/* FUNDOS */
+#home {
+ background-image: url('../img/inicio-fundo.png');
+ background-size: contain;
+ background-repeat: no-repeat;
+ background-position: center;
+ background-color: #D6B1FF;
+ height: 100vh;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ position: relative;
+}
+#pedidos, #acompanhar, #login { background: url('../img/fundo-acesso.png') repeat; min-height: 100vh; padding: 20px; }
+
+/* BOTÃO HOME */
+#btn-comecar {
+padding: 10px 35px;
+ font-size: 18px;
+background-color: #8e44ad;
+color: white;
+border: 2px solid #ffffff; 
+border-radius: 12px;
+cursor: pointer;
+ font-family: 'Arial', sans-serif;
+ font-weight: bold;
+position: absolute;
+bottom: 35%; 
+transition: transform 0.2s, background-color 0.2s;
+}
+
+#btn-comecar:hover {
+transform: scale(1.05);
+ background-color: #732d91;
+}
+
+/* MENU SUPERIOR */
+.menu-superior { display: flex; justify-content: space-between; align-items: center; background: #9b59b6; padding: 15px; border-radius: 15px; color: white; }
+.balao-texto { background: white; color: #9b59b6; padding: 8px 15px; border-radius: 20px; font-weight: bold; }
+.icones-nav i { font-size: 24px; margin-left: 15px; cursor: pointer; }
+
+/* LAYOUT DE PEDIDOS */
+.conteudo-pedidos { display: flex; background: white; margin-top: 20px; border-radius: 15px; min-height: 80vh; }
+.sidebar { width: 200px; padding: 20px; border-right: 2px dashed #9b59b6; }
+.filtros { background: #e0c3fc; padding: 15px; border-radius: 15px; display: flex; flex-direction: column; gap: 10px; }
+
+/* GRID DE PRODUTOS */
+.grid-produtos { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; padding: 20px; flex-grow: 1; }
+.card-produto { display: flex; align-items: center; gap: 15px; cursor: pointer; transition: 0.2s; }
+.card-produto:hover { transform: scale(1.02); }
+.card-produto img { width: 100px; height: 100px; border-radius: 10px; object-fit: cover; }
+
+/* FORMULÁRIO */
+.formulario-container { background: #9b59b6; padding: 20px; border-radius: 20px; width: 400px; margin: auto; color: white; }
+.formulario-container form { background: white; padding: 20px; border-radius: 15px; display: flex; flex-direction: column; color: #333; }
+.formulario-container input { margin-bottom: 10px; padding: 8px; border: 1px solid #ccc; border-radius: 5px; }
+.btn-pedir { background: #8e44ad; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px; margin-top: 10px;}
+.btn-pedir:hover { background: #732d91;}
+
+/* ACOMPANHAR PEDIDO */
+.container-acompanhar { display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; background: white; padding: 20px; border-radius: 15px; margin-top: 20px; }
+.card-status { background: #D6B1FF; padding: 20px; border-radius: 15px; display: flex; gap: 15px; }
+.status-texto h3 { color: white; margin: 5px 0; }
+.cancelar { color: blue; font-size: 12px; text-decoration: underline; cursor: pointer; }
+
+.detalhes-pagamento { background: #800080; color: white; padding: 20px; border-radius: 15px; }
+.img-detalhe { width: 100%; border-radius: 10px; margin-bottom: 10px; height: 200px; object-fit: cover;}
+.total-pago { border-top: 1px solid white; padding-top: 10px; font-weight: bold; margin-top: 10px; }
+.item-historico { display: flex; gap: 10px; align-items: center; margin-top: 10px; background: #f9f9f9; padding: 10px; border-radius: 10px; border-left: 4px solid #9b59b6;}
+.item-historico img { width: 60px; height: 60px; border-radius: 5px; object-fit: cover;}
+.detalhe-hist p { margin: 2px 0; font-size: 14px; color: #555;}
+
+/* ESTILO DO AVISO DE SUCESSO */
+#modal-sucesso {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+}
+
+.modal-sucesso-oculto {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.conteudo-modal {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border: 4px solid #9b59b6;
+    animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.conteudo-modal i { font-size: 60px; color: #2ecc71; margin-bottom: 15px; }
+.conteudo-modal h2 { color: #9b59b6; margin: 0; }
+.conteudo-modal p { color: #666; font-weight: 500; }
+
+@keyframes popIn {
+    0% { transform: scale(0.5); }
+    100% { transform: scale(1); }
+}
